@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Producto · SCA Virgen de la Cabeza · v2</title>
+  <meta name="description" content="Ficha de producto de la cooperativa Virgen de la Cabeza. Aceite de oliva virgen extra con denominación de origen Montes de Granada." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/global.css" />
+  <link rel="stylesheet" href="../styles/componentes.css" />
+  <link rel="stylesheet" href="../styles/paginas.css" />
+  <!-- Capa de skin v2: cargada después para sobreescribir tokens y matices estéticos -->
+  <link rel="stylesheet" href="styles/skin-v2.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER GLOBAL
+       ============================================================ -->
+  <header class="encabezado" role="banner">
+    <div class="contenedor encabezado__inner">
+      <a href="index.html" class="encabezado__logo" aria-label="SCA Virgen de la Cabeza — Inicio">
+        <img src="../assets/images/icons/LogoSCA.png" alt="" class="encabezado__logo-icono" aria-hidden="true" />
+        <span>
+          <span class="encabezado__logo-marca">Virgen de la Cabeza</span>
+          <span class="encabezado__logo-sub">SCA · Montejícar</span>
+        </span>
+      </a>
+
+      <nav class="encabezado__nav" aria-label="Navegación principal">
+        <ul class="encabezado__nav-lista">
+          <li><a class="encabezado__nav-link" href="index.html">Inicio</a></li>
+          <li><a class="encabezado__nav-link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="encabezado__nav-link" href="tienda.html">Tienda</a></li>
+          <li><a class="encabezado__nav-link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="encabezado__nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <div class="encabezado__acceso">
+          <button id="abrir-acceso" class="encabezado__acceso-boton" type="button"
+                  aria-controls="acceso-panel" aria-expanded="false" aria-label="Acceso socios">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+            </svg>
+          </button>
+
+          <div id="acceso-panel" class="acceso-panel" role="dialog" aria-modal="false" aria-labelledby="acceso-titulo" aria-hidden="true">
+            <h2 id="acceso-titulo" class="acceso-panel__titulo">Acceso socios</h2>
+            <p class="acceso-panel__subtitulo">Entra en tu área privada</p>
+
+            <form class="acceso-form" novalidate>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-usuario">Nº de socio o email</label>
+                <input class="acceso-form__input" type="text" id="acceso-usuario" name="usuario"
+                       autocomplete="username"/>
+              </div>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-clave">Contraseña</label>
+                <input class="acceso-form__input" type="password" id="acceso-clave" name="contrasena"
+                       autocomplete="current-password" placeholder="••••••••" />
+              </div>
+              <button class="boton boton--primario acceso-form__boton" type="submit">Iniciar sesión</button>
+              <a class="acceso-form__olvido" href="#">¿Has olvidado tu contraseña?</a>
+            </form>
+
+            <p class="acceso-panel__pie"><strong>Virgen de la Cabeza</strong> · Socios</p>
+          </div>
+        </div>
+
+        <a href="carrito.html" class="encabezado__carrito" aria-label="Ver carrito">
+          <svg class="encabezado__carrito-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.6a2 2 0 0 0 2-1.6L21 8H6" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="17" cy="20" r="1.5" />
+          </svg>
+          <span class="encabezado__carrito-contador" data-contador-carrito data-cantidad="0">0</span>
+        </a>
+
+        <button id="abrir-menu-movil" class="encabezado__hamburguesa" type="button" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="menu-movil" class="menu-movil" aria-hidden="true">
+      <nav aria-label="Navegación móvil">
+        <ul class="menu-movil__lista">
+          <li><a class="menu-movil__link" href="index.html">Inicio</a></li>
+          <li><a class="menu-movil__link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="menu-movil__link" href="tienda.html">Tienda</a></li>
+          <li><a class="menu-movil__link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="menu-movil__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============================================================
+         1. BREADCRUMB
+         ============================================================ -->
+    <nav class="breadcrumb" aria-label="Migas de pan">
+      <div class="contenedor">
+        <ol class="breadcrumb__lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">›</li>
+          <li><a href="tienda.html">Aceites</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="breadcrumb__actual"><span id="producto-breadcrumb">…</span></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         2. CABECERA DEL PRODUCTO
+         ============================================================ -->
+    <section class="producto-cabecera" aria-labelledby="producto-nombre">
+      <div class="contenedor producto-cabecera__grid">
+
+        <!-- Galería -->
+        <div class="producto-galeria">
+          <div class="galeria__principal-wrapper">
+            <img id="producto-imagen" class="galeria__principal" src="" alt="" />
+          </div>
+          <div id="producto-miniaturas" class="miniaturas" role="tablist" aria-label="Miniaturas del producto"></div>
+        </div>
+
+        <!-- Información -->
+        <div class="producto-info">
+          <div id="producto-chips" class="producto-info__chips"></div>
+
+          <h1 id="producto-nombre" class="producto-info__nombre">Cargando…</h1>
+          <p id="producto-descripcion" class="producto-info__descripcion"></p>
+
+          <hr class="producto-info__separador" />
+
+          <div class="producto-info__bloque-formato">
+            <span class="producto-info__etiqueta-bloque">Formato</span>
+            <div id="producto-formatos" class="producto-info__formatos" role="group" aria-label="Selector de formato"></div>
+          </div>
+
+          <div id="producto-precio" class="producto-info__precio" aria-live="polite">—</div>
+
+          <div class="producto-info__cantidad-fila">
+            <span class="producto-info__etiqueta-bloque" style="margin-bottom:0;">Cantidad</span>
+            <div class="cantidad-control">
+              <button id="cantidad-menos" class="cantidad-control__boton" type="button" aria-label="Disminuir cantidad">−</button>
+              <input id="producto-cantidad" class="cantidad-control__input" type="number" min="1" max="99" value="1" aria-label="Cantidad" />
+              <button id="cantidad-mas" class="cantidad-control__boton" type="button" aria-label="Aumentar cantidad">+</button>
+            </div>
+          </div>
+
+          <button id="producto-anyadir" class="producto-info__anyadir" type="button" data-formato-index="0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.6a2 2 0 0 0 2-1.6L21 8H6"/>
+              <circle cx="9" cy="20" r="1.5"/>
+              <circle cx="17" cy="20" r="1.5"/>
+            </svg>
+            Añadir al carrito
+          </button>
+
+          <ul class="producto-info__extras" role="list">
+            <li class="producto-info__extra">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="6" width="14" height="11" rx="1"/>
+                <path d="M15 9h4l3 4v4h-7z"/>
+                <circle cx="6" cy="19" r="2"/>
+                <circle cx="18" cy="19" r="2"/>
+              </svg>
+              Envío en 24-48 h en península
+            </li>
+            <li class="producto-info__extra">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+              Recogida gratuita en la cooperativa
+            </li>
+            <li class="producto-info__extra">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="10" width="16" height="11" rx="1.5"/>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+              </svg>
+              Pago seguro
+            </li>
+            <li class="producto-info__extra">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 7 9 18l-5-5"/>
+              </svg>
+              Certificado DOP Montes de Granada
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. NOTAS DE CATA (acordeón)
+         ============================================================ -->
+    <section class="notas-cata" aria-labelledby="notas-cata-titulo">
+      <div class="contenedor">
+        <div class="notas-cata__inner">
+          <h2 id="notas-cata-titulo" class="notas-cata__titulo">Notas de cata</h2>
+          <p class="notas-cata__intro">Despliega cada fase para conocer mejor este aceite.</p>
+
+          <div class="acordeon">
+
+            <!-- Fase visual -->
+            <div class="acordeon__fila">
+              <button class="acordeon__cabecera" type="button" aria-expanded="false" aria-controls="cata-visual-panel">
+                <svg class="acordeon__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span class="acordeon__titulo">Fase visual</span>
+                <svg class="acordeon__flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div id="cata-visual-panel" class="acordeon__panel" role="region">
+                <p class="acordeon__panel-contenido" id="cata-visual"></p>
+              </div>
+            </div>
+
+            <!-- Fase olfativa -->
+            <div class="acordeon__fila">
+              <button class="acordeon__cabecera" type="button" aria-expanded="false" aria-controls="cata-olfativa-panel">
+                <svg class="acordeon__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2c-1 4-5 6-5 11a5 5 0 0 0 10 0c0-5-4-7-5-11Z"/>
+                  <path d="M9 18c1 1 5 1 6 0"/>
+                </svg>
+                <span class="acordeon__titulo">Fase olfativa</span>
+                <svg class="acordeon__flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div id="cata-olfativa-panel" class="acordeon__panel" role="region">
+                <p class="acordeon__panel-contenido" id="cata-olfativa"></p>
+              </div>
+            </div>
+
+            <!-- Fase gustativa -->
+            <div class="acordeon__fila">
+              <button class="acordeon__cabecera" type="button" aria-expanded="false" aria-controls="cata-gustativa-panel">
+                <svg class="acordeon__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8 4c0 4-3 5-3 8s2 5 5 5h4c3 0 5-2 5-5s-3-4-3-8"/>
+                  <path d="M12 4v4"/>
+                </svg>
+                <span class="acordeon__titulo">Fase gustativa</span>
+                <svg class="acordeon__flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div id="cata-gustativa-panel" class="acordeon__panel" role="region">
+                <p class="acordeon__panel-contenido" id="cata-gustativa"></p>
+              </div>
+            </div>
+
+            <!-- La cata en casa -->
+            <div class="acordeon__fila">
+              <button class="acordeon__cabecera" type="button" aria-expanded="false" aria-controls="cata-casa-panel">
+                <svg class="acordeon__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 11 12 3l9 8"/>
+                  <path d="M5 9v11h14V9"/>
+                  <path d="M10 20v-6h4v6"/>
+                </svg>
+                <span class="acordeon__titulo">La cata en casa</span>
+                <svg class="acordeon__flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div id="cata-casa-panel" class="acordeon__panel" role="region">
+                <p class="acordeon__panel-contenido" id="cata-casa"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. PRODUCTOS RELACIONADOS
+         ============================================================ -->
+    <section class="relacionados al-aparecer" aria-labelledby="relacionados-titulo">
+      <div class="contenedor">
+        <div class="encabezado-bloque">
+          <span class="eyebrow">También te puede interesar</span>
+          <h2 id="relacionados-titulo" class="titulo-bloque">Otros aceites de la cooperativa</h2>
+        </div>
+        <div id="producto-relacionados" class="relacionados__grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. CTA INFERIOR — CONFIANZA
+         ============================================================ -->
+    <section class="confianza" aria-label="Por qué confiar en nosotros">
+      <div class="contenedor">
+        <div class="confianza__grid">
+          <div class="confianza__bloque">
+            <img class="confianza__icono" src="../assets/images/icons/montana.svg" alt="" aria-hidden="true" />
+            <h3 class="confianza__titulo">Aceite de montaña</h3>
+            <p class="confianza__texto">Olivar a más de 900 metros.</p>
+          </div>
+          <div class="confianza__bloque">
+            <svg class="confianza__icono" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="30" cy="26" r="14"/>
+              <path d="M30 18v8l5 3"/>
+              <path d="M22 36l-4 16 12-6 12 6-4-16"/>
+            </svg>
+            <h3 class="confianza__titulo">DOP Montes de Granada</h3>
+            <p class="confianza__texto">Certificación de origen.</p>
+          </div>
+          <div class="confianza__bloque">
+            <img class="confianza__icono" src="../assets/images/icons/cooperativa.svg" alt="" aria-hidden="true" />
+            <h3 class="confianza__titulo">Cooperativa familiar</h3>
+            <p class="confianza__texto">Desde 1963 en Montejícar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER GLOBAL
+       ============================================================ -->
+  <footer class="pie" role="contentinfo">
+    <div class="contenedor">
+      <div class="pie__grid">
+        <!-- Columna 1: marca + redes -->
+        <div class="pie__columna">
+          <div class="pie__marca">
+            Virgen de la Cabeza
+            <span class="pie__marca-sub">SCA · Montejícar</span>
+          </div>
+          <p class="pie__texto">Cooperativa olivarera fundada en 1963. Aceite de montaña de la DOP Montes de Granada.</p>
+          <div class="pie__redes">
+            <a class="pie__red" href="https://www.facebook.com/scavirgendelacabeza/?locale=es_ES" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.4A24 24 0 0 0 14.3 4c-2.5 0-4.2 1.5-4.2 4.3v2.2H7.5v3h2.6V21h3.4Z"/></svg>
+            </a>
+            <a class="pie__red" href="https://www.instagram.com/scavirgendelacabeza" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: navegación -->
+        <div class="pie__columna">
+          <h3>Navegación</h3>
+          <ul class="pie__lista">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="la-cooperativa.html">La cooperativa</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="productos-agricolas.html">Productos agrícolas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: contacto -->
+        <div class="pie__columna">
+          <h3>Contacto</h3>
+          <p class="pie__texto">
+            Camino de la Almazara, s/n<br />
+            18561 Montejícar, Granada
+          </p>
+          <ul class="pie__lista">
+            <li><a href="tel:+34958393394">958 393 394</a></li>
+            <li><a href="mailto:info@scavirgendelacabeza.com">info@scavirgendelacabeza.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: legales -->
+        <div class="pie__columna">
+          <h3>Legal</h3>
+          <ul class="pie__lista">
+            <li><a href="aviso-legal.html">Aviso legal y privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Franja inferior a ancho completo -->
+    <div class="pie__franja">
+      <div class="pie__franja-inner">
+        <div class="pie__sellos">
+          <img src="../assets/images/certifications/montes-de-granada.png" alt="DOP Montes de Granada" />
+          <img src="../assets/images/certifications/dcoop.png" alt="DCOOP" />
+        </div>
+        <span class="pie__franja-sep" aria-hidden="true"></span>
+        <p class="pie__copyright">© <span id="anyo-actual">2026</span> SCA Virgen de la Cabeza</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="subir-arriba" class="subir-arriba" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 15 12 9 18 15" />
+    </svg>
+  </button>
+
+  <script>
+    document.getElementById('anyo-actual').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Scripts: el orden importa.
+       1) catálogo + carrito (necesarios para producto.js)
+       2) main.js (header, contador, reactividad del carrito)
+       3) producto.js (lógica de la página) -->
+  <script src="../scripts/catalogo-datos.js" defer></script>
+  <script src="../scripts/carrito.js" defer></script>
+  <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/producto.js" defer></script>
+</body>
+</html>

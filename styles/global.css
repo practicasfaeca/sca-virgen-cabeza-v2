@@ -1,0 +1,162 @@
+/* ============================================================
+   global.css — Variables, reset, tipografía y utilidades
+   SCA Virgen de la Cabeza
+   ============================================================ */
+
+/* Paleta y tipografías globales.
+   Cualquier color o fuente nueva en componentes debería pasar antes por aquí. */
+:root {
+  /* Color */
+  --color-oliva-oscuro: #3A4A2A;
+  --color-crema:        #F5F1E8;
+  --color-dorado:       #C9A961;
+  --color-tierra:       #8B7355;
+  --color-carbon:       #1A171B;
+  --color-blanco:       #FFFFFF;
+  --color-gris-suave:   #E8E2D4;
+
+  /* Tipografía */
+  --fuente-titular: 'Cormorant Garamond', Georgia, serif;
+  --fuente-cuerpo:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --ancho-maximo: 1240px;
+  --padding-lateral: 20px;
+
+  /* Sombras reutilizables */
+  --sombra-suave: 0 8px 24px rgba(26, 23, 27, 0.08);
+  --sombra-media: 0 14px 32px rgba(26, 23, 27, 0.12);
+
+  /* Transición estándar para hover/focus */
+  --transicion-rapida: 200ms ease;
+  --transicion-media: 400ms ease;
+}
+
+/* ----------------------------------------------------------
+   Reset mínimo (no usamos Normalize porque no compensa el peso)
+   ---------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente-cuerpo);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-carbon);
+  background-color: var(--color-crema);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 .5em;
+  font-family: var(--fuente-titular);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-oliva-oscuro);
+  text-wrap: balance;
+}
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a {
+  color: var(--color-oliva-oscuro);
+  text-decoration: none;
+  transition: color var(--transicion-rapida);
+}
+a:hover { color: var(--color-dorado); }
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+/* Foco accesible — visible solo cuando se navega con teclado */
+:focus-visible {
+  outline: 2px solid var(--color-dorado);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ----------------------------------------------------------
+   Utilidades
+   ---------------------------------------------------------- */
+
+/* Contenedor centrado con padding lateral */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 var(--padding-lateral);
+}
+
+/* Eyebrow: pequeño rótulo dorado encima de los titulares */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--fuente-cuerpo);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  margin-bottom: 14px;
+}
+
+/* Encabezado de bloque centrado (selector, virtudes, cronología, etc.) */
+.encabezado-bloque { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.encabezado-bloque .titulo-bloque { font-size: clamp(28px, 4vw, 40px); margin: 0; }
+
+/* Texto solo para lectores de pantalla */
+.solo-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ----------------------------------------------------------
+   Animaciones globales (fade-in al entrar en viewport)
+   La clase .es-visible la añade el IntersectionObserver de main.js
+   ---------------------------------------------------------- */
+.al-aparecer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.al-aparecer.es-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger: hijos directos con clase .al-aparecer-hijo se retrasan 50ms cada uno */
+.al-aparecer-hijo {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.es-visible .al-aparecer-hijo { opacity: 1; transform: translateY(0); }
+.es-visible > .al-aparecer-hijo:nth-child(1) { transition-delay: 0ms; }
+.es-visible > .al-aparecer-hijo:nth-child(2) { transition-delay: 50ms; }
+.es-visible > .al-aparecer-hijo:nth-child(3) { transition-delay: 100ms; }
+.es-visible > .al-aparecer-hijo:nth-child(4) { transition-delay: 150ms; }
+.es-visible > .al-aparecer-hijo:nth-child(5) { transition-delay: 200ms; }
+.es-visible > .al-aparecer-hijo:nth-child(6) { transition-delay: 250ms; }
+
+/* Si el usuario prefiere menos movimiento, anulamos todas las animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .al-aparecer, .al-aparecer-hijo { opacity: 1; transform: none; }
+}

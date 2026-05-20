@@ -1,0 +1,364 @@
+/* ============================================================
+   skin-v2.css — Capa de variantes estéticas (versión 2)
+   SCA Virgen de la Cabeza
+
+   Esta hoja se carga DESPUÉS de paginas.css y sólo sobreescribe
+   detalles de skin. La estructura, los componentes y el JS son
+   los mismos que en la v1. Cambios:
+
+   1. Encabezado claro: fondo crema, tipografía oscura.
+   2. Tarjetas de producto de la tienda con imagen más compacta.
+   3. Otros toques sutiles para diferenciar la skin:
+      - Eyebrow con guion dorado en lugar de bloque suelto.
+      - Botón primario con borde fino interior.
+      - Sombras un punto más suaves.
+      - Cronología y "virtudes" con fondo blanco para airear.
+   ============================================================ */
+
+:root {
+  /* Mismo sistema de color pero con sombras algo más suaves para
+     la sensación general de la skin clara. */
+  --sombra-suave: 0 6px 18px rgba(26, 23, 27, 0.06);
+  --sombra-media: 0 10px 26px rgba(26, 23, 27, 0.10);
+}
+
+/* ----------------------------------------------------------
+   1. ENCABEZADO CLARO
+   Fondo crema con un hairline inferior oliva al 12 % para
+   despegar visualmente del contenido. Toda la tipografía
+   pasa a oliva oscuro y los hovers a dorado.
+   ---------------------------------------------------------- */
+.encabezado {
+  background-color: var(--color-crema);
+  color: var(--color-oliva-oscuro);
+  border-bottom: 1px solid rgba(58, 74, 42, 0.12);
+}
+
+.encabezado__logo,
+.encabezado__logo-marca { color: var(--color-oliva-oscuro); }
+.encabezado__logo:hover { color: var(--color-dorado); }
+
+/* El subtítulo del logo (SCA · Montejícar) deja de ser dorado
+   y pasa a tierra suave para que case con la nueva paleta de
+   header. El dorado sigue presente como acento en hover. */
+.encabezado__logo-sub { color: var(--color-tierra); }
+
+/* Navegación principal */
+.encabezado__nav-link {
+  color: var(--color-carbon);
+}
+.encabezado__nav-link:hover { color: var(--color-oliva-oscuro); }
+.encabezado__nav-link::after { background-color: var(--color-dorado); }
+
+/* Icono de acceso socios + carrito (heredan el color del header). */
+.encabezado__acceso-boton,
+.encabezado__carrito {
+  color: var(--color-oliva-oscuro);
+}
+.encabezado__acceso-boton:hover,
+.encabezado__acceso-boton[aria-expanded="true"],
+.encabezado__carrito:hover {
+  background-color: rgba(58, 74, 42, 0.08);
+  color: var(--color-oliva-oscuro);
+}
+.encabezado__acceso-boton[aria-expanded="true"] { color: var(--color-dorado); }
+
+/* Contador del carrito: en v1 era dorado sobre fondo oscuro.
+   Aquí lo invertimos: pastilla oliva con texto crema. */
+.encabezado__carrito-contador {
+  background-color: var(--color-oliva-oscuro);
+  color: var(--color-crema);
+}
+
+/* Hamburguesa: las barras en oliva oscuro */
+.encabezado__hamburguesa span { background-color: var(--color-oliva-oscuro); }
+
+/* ----------------------------------------------------------
+   2. IMÁGENES DE PRODUCTO MÁS COMPACTAS EN LA TIENDA
+   Se mantiene exactamente la proporción del modal (ahí los
+   data-* y el .modal-producto__imagen no cambian).
+   La tarjeta pasa de aspect-ratio 4/5 a 1/1 con menos padding,
+   y la rejilla pasa a 4 columnas en desktop para reducir el
+   tamaño efectivo de cada tarjeta a aproximadamente la mitad
+   del original. La sección destacada (cat-regalar) ya no se
+   limita a 2 columnas: comparte rejilla con el resto.
+   ---------------------------------------------------------- */
+.tarjeta-aceite__imagen-wrapper {
+  aspect-ratio: 1 / 1;
+  padding: 12px;
+  background-color: #FBF8F0; /* un crema un punto más cálido */
+}
+
+/* Reducimos un poco la imagen para que respire más en el cuadro
+   y para que las botellas alargadas no toquen los bordes. */
+.tarjeta-aceite__imagen { max-height: 72%; }
+
+/* Compensación de padding interno en el PNG de Arbequina.
+   La PNG de la arbequina 250 ml viene con más píxeles transparentes
+   alrededor de la botella (82 % vs ~78 % en las otras), así que el
+   bote se ve un punto más pequeño en la tarjeta. Lo escalamos un
+   poco para igualar visualmente con picual y hojiblanca, sin tocar
+   el asset. Mantenemos object-fit: contain. */
+.tarjeta-aceite__imagen[src*="AoveDCOOP_SelecctionArbequina"] {
+  transform: scale(1.12);
+  transform-origin: center;
+}
+.tarjeta-aceite:hover .tarjeta-aceite__imagen[src*="AoveDCOOP_SelecctionArbequina"] {
+  transform: scale(1.15);
+}
+
+/* Sello "Edición limitada": misma posición pero un poco menor */
+.tarjeta-aceite__sello {
+  top: 10px;
+  left: 10px;
+  font-size: 9.5px;
+  letter-spacing: 1.2px;
+  padding: 3px 8px;
+}
+
+/* Cuerpo de la tarjeta — tipografía y espaciado más contenidos
+   para que case con la imagen reducida. Además, el CTA "Añadir
+   al carrito" queda anclado al fondo del cuerpo (margin-top:auto)
+   para que todas las tarjetas alineen el botón aunque el nombre
+   o la meta del producto tengan más de una línea. */
+.tarjeta-aceite__cuerpo {
+  padding: 16px 14px;
+  gap: 6px;
+  flex: 1;
+}
+.tarjeta-aceite__nombre { font-size: 17px; }
+.tarjeta-aceite__meta { font-size: 12px; }
+.tarjeta-aceite__precio { font-size: 17px; margin: 8px 0 0; }
+.tarjeta-aceite__cta {
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+/* Las tarjetas en general: borde 1px más visible para compensar
+   la imagen más pequeña, esquinas algo menos redondeadas. */
+.tarjeta-aceite {
+  border-color: rgba(58, 74, 42, 0.14);
+}
+
+/* Rejilla más densa: doblamos columnas para reducir la tarjeta
+   a aproximadamente la mitad de superficie del original. */
+@media (min-width: 560px) {
+  .tienda-categorias .categoria__grid,
+  .tienda-categorias .categoria__grid--dos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .tienda-categorias .categoria__grid,
+  .tienda-categorias .categoria__grid--dos {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ----------------------------------------------------------
+   3. EYEBROW CON GUION
+   Detalle de skin: el rótulo dorado ahora va precedido de una
+   línea fina del mismo color. Cambia poco el peso visual y
+   refuerza la nueva paleta más editorial.
+   ---------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.65;
+}
+
+/* ----------------------------------------------------------
+   4. BOTÓN PRIMARIO — Borde fino interior
+   Mismo color, mismo tamaño, pero con una "doble línea" muy
+   sutil (1 px box-shadow interna en crema al 20 %) que aporta
+   acabado. Sólo en estado normal; en hover se desvanece.
+   ---------------------------------------------------------- */
+.boton--primario {
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 241, 232, 0.22),
+    var(--sombra-suave);
+}
+.boton--primario:hover {
+  box-shadow: var(--sombra-media);
+}
+
+/* ----------------------------------------------------------
+   5. AIRE ENTRE BLOQUES EN HOME
+   La sección de virtudes y la de selector de uso ganan en
+   contraste si el fondo del body pasa a un crema cálido y
+   estas dos secciones quedan en blanco puro. Es un cambio muy
+   sutil pero introduce ritmo vertical sin tocar layout.
+   ---------------------------------------------------------- */
+body { background-color: #F7F3E9; }
+
+.virtudes,
+.selector-uso {
+  background-color: var(--color-blanco);
+}
+
+/* ----------------------------------------------------------
+   6. HERO PRINCIPAL — Etiquetado de versión
+   Una pequeña pista textual de que estamos viendo la v2. No
+   afecta a la maquetación: pseudo-elemento dentro del hero
+   con un chip sutil arriba a la derecha. Pensado para revisión
+   interna; quitar antes de publicar si se decide esta vía.
+   ---------------------------------------------------------- */
+.hero::after,
+.tienda-hero::after,
+.hero-corto::after,
+.hero-secundario::after {
+  content: "v2";
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 4;
+  font-family: var(--fuente-cuerpo);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-crema);
+  background-color: rgba(26, 23, 27, 0.42);
+  backdrop-filter: blur(6px);
+  padding: 5px 10px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* ----------------------------------------------------------
+   7. CRONOLOGÍA — Punto un poco más grueso
+   Toque mínimo para que en una segunda mirada se note que
+   esta no es exactamente la misma página.
+   ---------------------------------------------------------- */
+.cronologia__punto {
+  outline: 3px solid rgba(201, 169, 97, 0.18);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------
+   8. TIENDA-HERO — Fondo editorial, sin fotografía
+   Se descarta la imagen original (que tiraba a "stock / IA") y
+   se sustituye por un fondo de color oliva oscuro con una
+   textura geométrica muy sutil. Sirve para los cuatro heroes
+   secundarios de la skin v2 (tienda, cooperativa, productos
+   agrícolas, contacto), todos comparten el mismo bloque .tienda-hero.
+
+   La textura es un SVG inline (data-URI) que dibuja una rejilla
+   diagonal extremadamente fina sobre el color base. Es ligera,
+   imprimible, y se ve igual de bien en pantallas Retina.
+   ---------------------------------------------------------- */
+
+/* Ocultamos la imagen real heredada de la v1. */
+.tienda-hero .tienda-hero__media { display: none; }
+
+.tienda-hero {
+  background-color: var(--color-oliva-oscuro);
+  background-image:
+    /* Pincelada de luz sutil en la esquina superior izquierda */
+    radial-gradient(ellipse at 18% 0%,
+      rgba(245, 241, 232, 0.10) 0%,
+      rgba(245, 241, 232, 0) 55%),
+    /* Retícula diagonal a 1 px (oliva clarito al 5 %), 24 px */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path d='M0 24 L24 0' stroke='%23F5F1E8' stroke-opacity='0.05' stroke-width='1' fill='none'/></svg>");
+  background-size:
+    auto,
+    24px 24px;
+  background-position:
+    top left,
+    top left;
+  background-repeat:
+    no-repeat,
+    repeat;
+}
+
+/* El velo se vuelve más discreto: sólo una caída de oscuro
+   muy ligera en la parte inferior para asentar el texto. */
+.tienda-hero__velo {
+  background: linear-gradient(180deg,
+    rgba(26, 23, 27, 0) 0%,
+    rgba(26, 23, 27, 0.25) 80%,
+    rgba(26, 23, 27, 0.35) 100%);
+}
+
+/* Hairline dorado en la parte inferior del hero — separa con
+   elegancia del contenido y refuerza el carácter editorial. */
+.tienda-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: rgba(201, 169, 97, 0.55);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ----------------------------------------------------------
+   9. ENLACES DEL PIE
+   El pie sigue oscuro, sin cambios. Sólo igualamos el dorado
+   de los hovers con el del nuevo header para mantener una
+   coherencia de detalle.
+   ---------------------------------------------------------- */
+.pie a:hover { color: var(--color-dorado); }
+
+/* ============================================================
+   TOQUES EDITORIALES — Pequeños detalles que separan la v2 de
+   la v1 sin tocar la estructura ni los cambios ya pactados
+   (nav claro, tarjetas pequeñas en tienda, hero secundario).
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   11. QUIENES — Marco oliva desplazado tras la foto
+   La sección "quiénes somos" en la home gana mucha gracia con
+   un marco fino oliva colocado en diagonal detrás de la imagen.
+   Se monta con ::before sobre el wrapper, sin tocar el <img>.
+   ---------------------------------------------------------- */
+.quienes__imagen-wrapper {
+  position: relative;
+}
+.quienes__imagen-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(201, 169, 97, 0.55);
+  z-index: 0;
+  pointer-events: none;
+}
+.quienes__imagen { position: relative; z-index: 1; }
+
+/* ----------------------------------------------------------
+   17. CRONOLOGÍA — Línea con degradado oliva → dorado
+   La línea horizontal que une los hitos en escritorio gana un
+   degradado sutil. En la v1 quedaba 5 px por debajo del centro
+   de los puntos; aquí la centramos exactamente con ellos.
+   ---------------------------------------------------------- */
+.cronologia__lista::before {
+  background: linear-gradient(90deg,
+    rgba(58, 74, 42, 0.25) 0%,
+    rgba(201, 169, 97, 0.55) 100%);
+}
+
+@media (min-width: 768px) {
+  /* Reajuste de centrado de la línea horizontal con los puntos.
+     V1: top:42px (queda 5px por debajo del centro de los puntos).
+     V2: top:37px (centrado exacto con el punto de 14 px). */
+  .cronologia__lista::before {
+    top: 37px;
+  }
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCA Virgen de la Cabeza · Aceite de montaña de Montejícar desde 1963</title>
+  <meta name="description" content="Cooperativa olivarera fundada en 1963 en Montejícar (Granada). DOP Montes de Granada. Aceite de montaña, alto oleico, baja acidez. Integrados en DCOOP." />
+
+  <!-- Google Fonts: Cormorant Garamond (titular) + Inter (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Hojas de estilo: orden global → componentes → página actual -->
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/componentes.css" />
+  <link rel="stylesheet" href="styles/paginas.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER GLOBAL
+       ============================================================ -->
+  <header class="encabezado" role="banner">
+    <div class="contenedor encabezado__inner">
+      <a href="index.html" class="encabezado__logo" aria-label="SCA Virgen de la Cabeza — Inicio">
+        <img src="assets/images/icons/LogoSCA.png" alt="" class="encabezado__logo-icono" aria-hidden="true" />
+        <span>
+          <span class="encabezado__logo-marca">Virgen de la Cabeza</span>
+          <span class="encabezado__logo-sub">SCA · Montejícar</span>
+        </span>
+      </a>
+
+      <nav class="encabezado__nav" aria-label="Navegación principal">
+        <ul class="encabezado__nav-lista">
+          <li><a class="encabezado__nav-link" href="index.html" aria-current="page">Inicio</a></li>
+          <li><a class="encabezado__nav-link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="encabezado__nav-link" href="tienda.html">Tienda</a></li>
+          <li><a class="encabezado__nav-link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="encabezado__nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <div class="encabezado__acceso">
+          <button id="abrir-acceso" class="encabezado__acceso-boton" type="button"
+                  aria-controls="acceso-panel" aria-expanded="false" aria-label="Acceso socios">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+            </svg>
+          </button>
+
+          <div id="acceso-panel" class="acceso-panel" role="dialog" aria-modal="false" aria-labelledby="acceso-titulo" aria-hidden="true">
+            <h2 id="acceso-titulo" class="acceso-panel__titulo">Acceso socios</h2>
+            <p class="acceso-panel__subtitulo">Entra en tu área privada</p>
+
+            <form class="acceso-form" novalidate>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-usuario">Nº de socio o email</label>
+                <input class="acceso-form__input" type="text" id="acceso-usuario" name="usuario"
+                       autocomplete="username" />
+              </div>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-clave">Contraseña</label>
+                <input class="acceso-form__input" type="password" id="acceso-clave" name="contrasena"
+                       autocomplete="current-password" placeholder="••••••••" />
+              </div>
+              <button class="boton boton--primario acceso-form__boton" type="submit">Iniciar sesión</button>
+              <a class="acceso-form__olvido" href="#">¿Has olvidado tu contraseña?</a>
+            </form>
+
+            <p class="acceso-panel__pie"><strong>Virgen de la Cabeza</strong> · Socios</p>
+          </div>
+        </div>
+
+        <a href="carrito.html" class="encabezado__carrito" aria-label="Ver carrito">
+          <svg class="encabezado__carrito-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.6a2 2 0 0 0 2-1.6L21 8H6" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="17" cy="20" r="1.5" />
+          </svg>
+          <span class="encabezado__carrito-contador" data-contador-carrito data-cantidad="0">0</span>
+        </a>
+
+        <button id="abrir-menu-movil" class="encabezado__hamburguesa" type="button" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Panel móvil (sólo se ve cuando aria-hidden="false") -->
+    <div id="menu-movil" class="menu-movil" aria-hidden="true">
+      <nav aria-label="Navegación móvil">
+        <ul class="menu-movil__lista">
+          <li><a class="menu-movil__link" href="index.html">Inicio</a></li>
+          <li><a class="menu-movil__link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="menu-movil__link" href="tienda.html">Tienda</a></li>
+          <li><a class="menu-movil__link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="menu-movil__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============================================================
+         1. HERO
+         ============================================================ -->
+    <section class="hero" aria-label="Presentación">
+      <!-- Vídeo de fondo. La fuente se carga desde JS (data-src) sólo si existe.
+           Mientras tanto, el poster funciona como fondo estático. -->
+      <video
+        class="hero__media"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/images/hero/hero-fallback.jpg"
+        aria-hidden="true">
+      </video>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__contenido">
+        <h1 class="hero__titulo">Desde 1963, aceite de montaña de Montejícar</h1>
+        <p id="hero-subtitulo" class="hero__subtitulo">Aceite de oliva virgen extra de la DOP Montes de Granada</p>
+        <a href="tienda.html" class="boton boton--primario hero__cta">Ver nuestros aceites</a>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         2. QUIÉNES SOMOS
+         ============================================================ -->
+    <section class="quienes al-aparecer" aria-labelledby="quienes-titulo">
+      <div class="contenedor quienes__grid">
+        <div class="quienes__imagen-wrapper">
+          <img
+            class="quienes__imagen"
+            src="assets/images/about/fotoDeLugar.jpg"
+            alt="Exterior de la almazara de la cooperativa Virgen de la Cabeza en Montejícar"
+            loading="lazy" />
+        </div>
+
+        <div class="quienes__texto-wrapper">
+          <span class="eyebrow">La cooperativa</span>
+          <h2 id="quienes-titulo" class="quienes__titulo">Más de medio siglo de cooperativismo en los Montes de Granada</h2>
+          <p class="quienes__texto">
+            Somos una cooperativa fundada en 1963 por las familias olivareras de Montejícar. Desde entonces transformamos en nuestra almazara la cosecha de nuestros socios y elaboramos aceites que expresan el carácter del olivar de montaña.
+          </p>
+          <p class="quienes__texto">
+            Pertenecemos a la DOP Montes de Granada y formamos parte de DCOOP, la mayor cooperativa olivarera de España. Eso nos da raíces locales y red para llegar lejos.
+          </p>
+          <a href="la-cooperativa.html" class="boton boton--secundario quienes__cta">Conoce nuestra historia</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. SELECTOR DE USO
+         Tres puertas de entrada a la tienda, alineadas con las categorías
+         actuales de tienda.html (Uso diario · Selección · Edición limitada).
+         ============================================================ -->
+    <section class="selector-uso al-aparecer" aria-labelledby="selector-titulo">
+      <div class="contenedor">
+        <div class="encabezado-bloque">
+          <span class="eyebrow">¿Qué aceite buscas?</span>
+          <h2 id="selector-titulo" class="titulo-bloque">Encuentra el tuyo según el uso</h2>
+        </div>
+        <div class="selector-uso__grid">
+          <a href="tienda.html#cat-dia-a-dia" class="tarjeta-uso">
+            <div class="tarjeta-uso__icono">
+              <img src="assets/images/products/cocinar-a-diario.png" alt=""
+              aria-hidden="true" />
+            </div>
+            <h3 class="tarjeta-uso__titulo">Para el uso diario</h3>
+            <p class="tarjeta-uso__descripcion">Aceites equilibrados y versátiles para guisos, sofritos y aliños cotidianos.</p>
+            <span class="tarjeta-uso__enlace">Ver tienda <span class="tarjeta-uso__flecha">→</span></span>
+          </a>
+          <a href="tienda.html#cat-crudo" class="tarjeta-uso">
+            <div class="tarjeta-uso__icono">
+              <img src="assets/images/products/crudo-y-alinar.png" alt=""
+              aria-hidden="true" />
+            </div>
+            <h3 class="tarjeta-uso__titulo">Para disfrutar en crudo</h3>
+            <p class="tarjeta-uso__descripcion">Monovarietales con carácter para ensaladas, tostadas, carpaccios y gazpachos.</p>
+            <span class="tarjeta-uso__enlace">Ver tienda <span class="tarjeta-uso__flecha">→</span></span>
+          </a>
+          <a href="tienda.html#cat-regalar" class="tarjeta-uso">
+            <div class="tarjeta-uso__icono">
+              <img src="assets/images/products/regalar-y-disfrutar.png" alt=""
+              aria-hidden="true" />
+            </div>
+            <h3 class="tarjeta-uso__titulo">Edición limitada</h3>
+            <p class="tarjeta-uso__descripcion">Hojiblanca de recolección temprana. Producción limitada de campaña.</p>
+            <span class="tarjeta-uso__enlace">Ver tienda <span class="tarjeta-uso__flecha">→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. CRONOLOGÍA DE HITOS
+         ============================================================ -->
+    <section class="cronologia al-aparecer" aria-labelledby="cronologia-titulo">
+      <div class="contenedor">
+        <div class="encabezado-bloque">
+          <span class="eyebrow">Nuestra historia</span>
+          <h2 id="cronologia-titulo" class="titulo-bloque">Seis décadas de evolución</h2>
+        </div>
+
+        <ol class="cronologia__lista">
+          <li class="cronologia__hito">
+            <span class="cronologia__punto" aria-hidden="true"></span>
+            <div class="cronologia__anyo">1963</div>
+            <h3 class="cronologia__titulo-hito">Fundación</h3>
+            <p class="cronologia__descripcion">Nace la cooperativa en Montejícar.</p>
+          </li>
+          <li class="cronologia__hito">
+            <span class="cronologia__punto" aria-hidden="true"></span>
+            <div class="cronologia__anyo">2013</div>
+            <h3 class="cronologia__titulo-hito">Integración en DCOOP</h3>
+            <p class="cronologia__descripcion">Entramos en la mayor cooperativa olivarera de España.</p>
+          </li>
+          <li class="cronologia__hito">
+            <span class="cronologia__punto" aria-hidden="true"></span>
+            <div class="cronologia__anyo">2016</div>
+            <h3 class="cronologia__titulo-hito">Traslado de la almazara</h3>
+            <p class="cronologia__descripcion">Aprobación municipal del nuevo emplazamiento.</p>
+          </li>
+          <li class="cronologia__hito">
+            <span class="cronologia__punto" aria-hidden="true"></span>
+            <div class="cronologia__anyo">2020</div>
+            <h3 class="cronologia__titulo-hito">Modernización</h3>
+            <p class="cronologia__descripcion">Subvención de 1,18 M € para mejorar las instalaciones.</p>
+          </li>
+          <li class="cronologia__hito">
+            <span class="cronologia__punto" aria-hidden="true"></span>
+            <div class="cronologia__anyo">2022</div>
+            <h3 class="cronologia__titulo-hito">Apoyo energético</h3>
+            <p class="cronologia__descripcion">Ayuda REACT-UE por el sobrecoste de energía.</p>
+          </li>
+          <li class="cronologia__hito">
+            <span class="cronologia__punto" aria-hidden="true"></span>
+            <div class="cronologia__anyo">2024</div>
+            <h3 class="cronologia__titulo-hito">Autoconsumo solar</h3>
+            <p class="cronologia__descripcion">Instalación de placas fotovoltaicas en la almazara.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. VIRTUDES DIFERENCIALES
+         ============================================================ -->
+    <section class="virtudes al-aparecer" aria-labelledby="virtudes-titulo">
+      <div class="contenedor">
+        <div class="encabezado-bloque">
+          <span class="eyebrow">Por qué elegirnos</span>
+          <h2 id="virtudes-titulo" class="titulo-bloque">Lo que hace único a nuestro aceite</h2>
+        </div>
+
+        <div class="virtudes__grid">
+          <article class="virtud al-aparecer-hijo">
+            <img class="virtud__icono" src="assets/images/icons/montana.png" alt="" aria-hidden="true" />
+            <h3 class="virtud__titulo">Aceite de montaña</h3>
+            <p class="virtud__descripcion">Nuestro olivar crece a más de 900 metros. La maduración lenta da aceites con cuerpo, alto en ácido oleico y baja acidez.</p>
+          </article>
+
+          <article class="virtud al-aparecer-hijo">
+            <img class="virtud__icono" src="assets/images/icons/cooperativa.png" alt="" aria-hidden="true" />
+            <h3 class="virtud__titulo">Cooperativa familiar</h3>
+            <p class="virtud__descripcion">Cientos de familias olivareras llevan décadas trayendo aquí su cosecha. Cada gota tiene un nombre detrás.</p>
+          </article>
+
+          <article class="virtud al-aparecer-hijo">
+            <img class="virtud__icono" src="assets/images/icons/medioambiente.png" alt="" aria-hidden="true" />
+            <h3 class="virtud__titulo">Compromiso con el medio ambiente</h3>
+            <p class="virtud__descripcion">Hemos modernizado la almazara con ayudas públicas y autoconsumo fotovoltaico para reducir nuestra huella energética.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. PRODUCTO DESTACADO DE CAMPAÑA
+         ============================================================ -->
+    <section class="destacado al-aparecer" aria-labelledby="destacado-titulo">
+      <div class="contenedor destacado__grid">
+        <div class="destacado__imagen-wrapper">
+          <!-- Si la imagen del producto falla, mostramos un placeholder elegante en su lugar. -->
+          <img class="destacado__imagen" src="assets/images/products/AoveUnicoFrutadoProduccionLimitada.png"
+            alt="Botella de aceite Único Frutado — hojiblanca de recolección temprana"
+            loading="lazy"
+            onerror="this.outerHTML='&lt;div class=&quot;destacado__imagen-fallback&quot;&gt;Único Frutado&lt;/div&gt;'" />
+        </div>
+
+        <div class="destacado__texto-wrapper">
+          <span class="destacado__sello">Edición limitada</span>
+          <h2 id="destacado-titulo" class="destacado__titulo">Único Frutado</h2>
+          <p class="destacado__subtitulo">Nuestro AOVE más exclusivo</p>
+          <p class="destacado__texto">
+            Un aceite reservado para los paladares más exigentes, con una producción muy reducida —muy por debajo de la del resto de nuestros aceites— elaborado a partir de una cuidada selección de los mejores lotes de campaña.
+          </p>
+          <p class="destacado__texto">
+            Una edición exclusiva y limitada. Cuando se agotan las botellas, ya no hay más hasta la siguiente cosecha.
+          </p>
+          <a href="tienda.html#cat-regalar" class="boton boton--primario destacado__cta">Comprar Único Frutado</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER GLOBAL
+       ============================================================ -->
+  <footer class="pie" role="contentinfo">
+    <div class="contenedor">
+      <div class="pie__grid">
+        <!-- Columna 1: marca + redes -->
+        <div class="pie__columna">
+          <div class="pie__marca">
+            Virgen de la Cabeza
+            <span class="pie__marca-sub">SCA · Montejícar</span>
+          </div>
+          <p class="pie__texto">Cooperativa olivarera fundada en 1963. Aceite de montaña de la DOP Montes de Granada.</p>
+          <div class="pie__redes">
+            <a class="pie__red" href="https://www.facebook.com/scavirgendelacabeza/?locale=es_ES" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.4A24 24 0 0 0 14.3 4c-2.5 0-4.2 1.5-4.2 4.3v2.2H7.5v3h2.6V21h3.4Z"/></svg>
+            </a>
+            <a class="pie__red" href="https://www.instagram.com/scavirgendelacabeza" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: navegación -->
+        <div class="pie__columna">
+          <h3>Navegación</h3>
+          <ul class="pie__lista">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="la-cooperativa.html">La cooperativa</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="productos-agricolas.html">Productos agrícolas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: contacto -->
+        <div class="pie__columna">
+          <h3>Contacto</h3>
+          <p class="pie__texto">
+            Camino de la Almazara, s/n<br />
+            18561 Montejícar, Granada
+          </p>
+          <ul class="pie__lista">
+            <li><a href="tel:+34958393394">958 393 394</a></li>
+            <li><a href="mailto:info@scavirgendelacabeza.com">info@scavirgendelacabeza.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: legales -->
+        <div class="pie__columna">
+          <h3>Legal</h3>
+          <ul class="pie__lista">
+            <li><a href="aviso-legal.html">Aviso legal y privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Franja inferior a ancho completo -->
+    <div class="pie__franja">
+      <div class="pie__franja-inner">
+        <div class="pie__sellos">
+          <img src="assets/images/certifications/montes-de-granada.png" alt="DOP Montes de Granada" />
+          <img src="assets/images/certifications/dcoop.png" alt="DCOOP" />
+        </div>
+        <span class="pie__franja-sep" aria-hidden="true"></span>
+        <p class="pie__copyright">© <span id="anyo-actual">2026</span> SCA Virgen de la Cabeza</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante "subir arriba" -->
+  <button id="subir-arriba" class="subir-arriba" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 15 12 9 18 15" />
+    </svg>
+  </button>
+
+  <!-- Año dinámico en el copyright (un par de líneas inline, no merece un fichero aparte) -->
+  <script>
+    document.getElementById('anyo-actual').textContent = new Date().getFullYear();
+  </script>
+
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>

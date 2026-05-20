@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto · SCA Virgen de la Cabeza · v2</title>
+  <meta name="description" content="Contacto con la cooperativa SCA Virgen de la Cabeza en Montejícar, Granada: teléfono, correo, dirección, horario y formulario." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/global.css" />
+  <link rel="stylesheet" href="../styles/componentes.css" />
+  <link rel="stylesheet" href="../styles/paginas.css" />
+  <!-- Capa de skin v2: cargada después para sobreescribir tokens y matices estéticos -->
+  <link rel="stylesheet" href="styles/skin-v2.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER GLOBAL
+       ============================================================ -->
+  <header class="encabezado" role="banner">
+    <div class="contenedor encabezado__inner">
+      <a href="index.html" class="encabezado__logo" aria-label="SCA Virgen de la Cabeza — Inicio">
+        <img src="../assets/images/icons/LogoSCA.png" alt="" class="encabezado__logo-icono" aria-hidden="true" />
+        <span>
+          <span class="encabezado__logo-marca">Virgen de la Cabeza</span>
+          <span class="encabezado__logo-sub">SCA · Montejícar</span>
+        </span>
+      </a>
+
+      <nav class="encabezado__nav" aria-label="Navegación principal">
+        <ul class="encabezado__nav-lista">
+          <li><a class="encabezado__nav-link" href="index.html">Inicio</a></li>
+          <li><a class="encabezado__nav-link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="encabezado__nav-link" href="tienda.html">Tienda</a></li>
+          <li><a class="encabezado__nav-link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="encabezado__nav-link" href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <div class="encabezado__acceso">
+          <button id="abrir-acceso" class="encabezado__acceso-boton" type="button"
+                  aria-controls="acceso-panel" aria-expanded="false" aria-label="Acceso socios">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+            </svg>
+          </button>
+
+          <div id="acceso-panel" class="acceso-panel" role="dialog" aria-modal="false" aria-labelledby="acceso-titulo" aria-hidden="true">
+            <h2 id="acceso-titulo" class="acceso-panel__titulo">Acceso socios</h2>
+            <p class="acceso-panel__subtitulo">Entra en tu área privada</p>
+
+            <form class="acceso-form" novalidate>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-usuario">Nº de socio o email</label>
+                <input class="acceso-form__input" type="text" id="acceso-usuario" name="usuario"
+                       autocomplete="username"/>
+              </div>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-clave">Contraseña</label>
+                <input class="acceso-form__input" type="password" id="acceso-clave" name="contrasena"
+                       autocomplete="current-password" placeholder="••••••••" />
+              </div>
+              <button class="boton boton--primario acceso-form__boton" type="submit">Iniciar sesión</button>
+              <a class="acceso-form__olvido" href="#">¿Has olvidado tu contraseña?</a>
+            </form>
+
+            <p class="acceso-panel__pie"><strong>Virgen de la Cabeza</strong> · Socios</p>
+          </div>
+        </div>
+
+        <a href="carrito.html" class="encabezado__carrito" aria-label="Ver carrito">
+          <svg class="encabezado__carrito-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.6a2 2 0 0 0 2-1.6L21 8H6" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="17" cy="20" r="1.5" />
+          </svg>
+          <span class="encabezado__carrito-contador" data-contador-carrito data-cantidad="0">0</span>
+        </a>
+
+        <button id="abrir-menu-movil" class="encabezado__hamburguesa" type="button" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="menu-movil" class="menu-movil" aria-hidden="true">
+      <nav aria-label="Navegación móvil">
+        <ul class="menu-movil__lista">
+          <li><a class="menu-movil__link" href="index.html">Inicio</a></li>
+          <li><a class="menu-movil__link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="menu-movil__link" href="tienda.html">Tienda</a></li>
+          <li><a class="menu-movil__link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="menu-movil__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============================================================
+         1. HERO CORTO
+         ============================================================ -->
+    <section class="tienda-hero" aria-labelledby="contacto-titulo">
+      <img class="tienda-hero__media"
+           src="../assets/images/hero/hero-fallback.jpg"
+           alt=""
+           aria-hidden="true" />
+      <div class="tienda-hero__velo" aria-hidden="true"></div>
+
+      <div class="contenedor tienda-hero__contenido">
+        <span class="eyebrow tienda-hero__eyebrow">Contacto</span>
+        <h1 id="contacto-titulo" class="tienda-hero__titulo">Estamos cerca de ti</h1>
+        <p class="tienda-hero__subtitulo">Por teléfono, por correo, o de visita en la almazara.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. MAPA + FORMULARIO
+         ============================================================ -->
+    <section class="contacto-bloque al-aparecer" aria-label="Mapa y formulario de contacto">
+      <div class="contenedor contacto-bloque__grid">
+
+        <!-- Mapa: URL provisional centrada en Montejícar.
+             Sustituir por la URL exacta cuando el equipo la confirme. -->
+        <div class="mapa">
+          <iframe
+            title="Ubicación de la cooperativa Virgen de la Cabeza en Montejícar, Granada"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3162.250645172952!2d-3.5049586!3d37.5727152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6e14a6e86bfcfd%3A0xefecc26225c5a0d7!2sVirgen%20de%20la%20Cabeza%2C%20Sdad.%20Coop.%20And.!5e0!3m2!1ses!2ses!4v1779090379311!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen=""></iframe>
+        </div>
+
+        <!-- Formulario -->
+        <form id="formulario-contacto" class="formulario" aria-labelledby="formulario-titulo">
+          <h2 id="formulario-titulo" class="formulario__titulo">Escríbenos</h2>
+
+          <div class="formulario__campos">
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="campo-nombre">Nombre<span class="campo__obligatorio" aria-hidden="true">*</span></label>
+              <input class="campo__input" type="text" id="campo-nombre" name="nombre" required autocomplete="name" />
+              <span class="campo__error-mensaje" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="campo-correo">Correo<span class="campo__obligatorio" aria-hidden="true">*</span></label>
+              <input class="campo__input" type="email" id="campo-correo" name="correo" required autocomplete="email" />
+              <span class="campo__error-mensaje" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="campo-telefono">Teléfono <span style="color:var(--color-tierra); font-weight:400;">(opcional)</span></label>
+              <input class="campo__input" type="tel" id="campo-telefono" name="telefono" autocomplete="tel" />
+              <span class="campo__error-mensaje" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="campo-asunto">Asunto<span class="campo__obligatorio" aria-hidden="true">*</span></label>
+              <select class="campo__select" id="campo-asunto" name="asunto" required>
+                <option value="">Selecciona un asunto…</option>
+                <option value="general">Información general</option>
+                <option value="pedido">Pedido</option>
+                <option value="agricolas">Productos agrícolas</option>
+                <option value="visita">Visitar la cooperativa</option>
+                <option value="otro">Otro</option>
+              </select>
+              <span class="campo__error-mensaje" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label class="campo__etiqueta" for="campo-mensaje">Mensaje<span class="campo__obligatorio" aria-hidden="true">*</span></label>
+              <textarea class="campo__textarea" id="campo-mensaje" name="mensaje" required minlength="10" rows="5"></textarea>
+              <span class="campo__error-mensaje" role="alert"></span>
+            </div>
+
+            <button id="formulario-enviar" class="formulario__enviar" type="submit">Enviar mensaje</button>
+            <p class="formulario__nota">Te responderemos en un plazo de 24-48 horas laborables.</p>
+
+            <div id="formulario-exito" class="formulario__exito" role="status" aria-live="polite" tabindex="-1" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 7 9 18l-5-5"/>
+              </svg>
+              <span>Mensaje enviado. Te responderemos pronto.</span>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. INFORMACIÓN DE CONTACTO DIRECTO
+         ============================================================ -->
+    <section class="contacto-info al-aparecer" aria-labelledby="contacto-info-titulo">
+      <div class="contenedor">
+        <div class="encabezado-bloque">
+          <span class="eyebrow">O contáctanos directamente</span>
+          <h2 id="contacto-info-titulo" class="titulo-bloque">Aquí tienes todos nuestros datos</h2>
+        </div>
+
+        <div class="contacto-info__grid">
+
+          <article class="tarjeta-contacto al-aparecer-hijo">
+            <img class="tarjeta-contacto__icono" src="../assets/images/icons/pin.svg" alt="" aria-hidden="true" />
+            <h3 class="tarjeta-contacto__titulo">Dirección</h3>
+            <p class="tarjeta-contacto__contenido">
+              Camino de la Almazara, s/n<br />
+              18561 Montejícar, Granada
+            </p>
+            <a class="tarjeta-contacto__enlace" href="https://maps.app.goo.gl/vEcp6jfTcckGGArx8" target="_blank" rel="noopener noreferrer">
+              Ver en Google Maps <span class="flecha" aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="tarjeta-contacto al-aparecer-hijo">
+            <img class="tarjeta-contacto__icono" src="../assets/images/icons/phone.png" alt="" aria-hidden="true" />
+            <h3 class="tarjeta-contacto__titulo">Teléfono</h3>
+            <p class="tarjeta-contacto__contenido">958 393 394</p>
+            <a class="tarjeta-contacto__enlace" href="tel:+34958393394">
+              Llamar ahora <span class="flecha" aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="tarjeta-contacto al-aparecer-hijo">
+            <img class="tarjeta-contacto__icono" src="../assets/images/icons/mail.svg" alt="" aria-hidden="true" />
+            <h3 class="tarjeta-contacto__titulo">Correo electrónico</h3>
+            <p class="tarjeta-contacto__contenido">info@scavirgendelacabeza.com</p>
+            <a class="tarjeta-contacto__enlace" href="mailto:info@scavirgendelacabeza.com">
+              Escribir un email <span class="flecha" aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="tarjeta-contacto al-aparecer-hijo">
+            <img class="tarjeta-contacto__icono" src="../assets/images/icons/clock.svg" alt="" aria-hidden="true" />
+            <h3 class="tarjeta-contacto__titulo">Horario de atención</h3>
+            <p class="tarjeta-contacto__contenido">
+              Lunes a viernes<br />
+              [HORARIO HABITUAL PENDIENTE]
+              <em>En campaña de aceituna: [HORARIO AMPLIADO PENDIENTE]</em>
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. VISITA LA COOPERATIVA
+         ============================================================ -->
+    <section class="visita al-aparecer" aria-labelledby="visita-titulo">
+      <div class="contenedor visita__grid">
+
+        <div class="visita__imagen-wrapper">
+          <img class="visita__imagen"
+               src="../assets/images/about/fotoDeLugar.jpg"
+               alt="Entrada exterior de la almazara de la cooperativa Virgen de la Cabeza"
+               loading="lazy" />
+        </div>
+
+        <div class="visita__texto-wrapper">
+          <span class="eyebrow">Visita la cooperativa</span>
+          <h2 id="visita-titulo" class="visita__titulo">Pásate a vernos</h2>
+          <p class="visita__texto">Estamos abiertos a quien quiera conocer cómo se hace nuestro aceite. Ven a recoger un pedido, prueba el aceite directamente del lagar o consulta cualquier duda sobre el olivar.</p>
+          <p class="visita__texto">Si vienes en grupo, llámanos antes y te organizamos una visita.</p>
+          <a href="tel:+34958393394" class="boton boton--primario visita__cta">Llámanos para visitar</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. AVISO LEGAL Y DATOS CORPORATIVOS
+         ============================================================ -->
+    <section class="datos-corp al-aparecer" aria-labelledby="datos-corp-titulo">
+      <div class="contenedor datos-corp__inner">
+        <span class="eyebrow">Datos corporativos</span>
+        <h2 id="datos-corp-titulo" class="datos-corp__titulo">Sociedad Cooperativa Andaluza Virgen de la Cabeza</h2>
+
+        <dl class="datos-corp__lista">
+          <div class="datos-corp__fila">
+            <dt class="datos-corp__etiqueta">Razón social</dt>
+            <dd class="datos-corp__valor">Sociedad Cooperativa Andaluza Virgen de la Cabeza</dd>
+          </div>
+          <div class="datos-corp__fila">
+            <dt class="datos-corp__etiqueta">Domicilio social</dt>
+            <dd class="datos-corp__valor">DIRECCIÓN COMPLETA PENDIENTE<br />18561 Montejícar, Granada</dd>
+          </div>
+          <div class="datos-corp__fila">
+            <dt class="datos-corp__etiqueta">Registro</dt>
+            <dd class="datos-corp__valor">Nº DE INSCRIPCIÓN PENDIENTE — Registro de Cooperativas Andaluzas</dd>
+          </div>
+        </dl>
+
+        <div class="datos-corp__enlaces">
+          <a href="aviso-legal.html">Aviso legal completo</a>
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="cookies.html">Política de cookies</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER GLOBAL
+       ============================================================ -->
+  <footer class="pie" role="contentinfo">
+    <div class="contenedor">
+      <div class="pie__grid">
+        <!-- Columna 1: marca + redes -->
+        <div class="pie__columna">
+          <div class="pie__marca">
+            Virgen de la Cabeza
+            <span class="pie__marca-sub">SCA · Montejícar</span>
+          </div>
+          <p class="pie__texto">Cooperativa olivarera fundada en 1963. Aceite de montaña de la DOP Montes de Granada.</p>
+          <div class="pie__redes">
+            <a class="pie__red" href="https://www.facebook.com/scavirgendelacabeza/?locale=es_ES" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.4A24 24 0 0 0 14.3 4c-2.5 0-4.2 1.5-4.2 4.3v2.2H7.5v3h2.6V21h3.4Z"/></svg>
+            </a>
+            <a class="pie__red" href="https://www.instagram.com/scavirgendelacabeza" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: navegación -->
+        <div class="pie__columna">
+          <h3>Navegación</h3>
+          <ul class="pie__lista">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="la-cooperativa.html">La cooperativa</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="productos-agricolas.html">Productos agrícolas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: contacto -->
+        <div class="pie__columna">
+          <h3>Contacto</h3>
+          <p class="pie__texto">
+            Camino de la Almazara, s/n<br />
+            18561 Montejícar, Granada
+          </p>
+          <ul class="pie__lista">
+            <li><a href="tel:+34958393394">958 393 394</a></li>
+            <li><a href="mailto:info@scavirgendelacabeza.com">info@scavirgendelacabeza.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: legales -->
+        <div class="pie__columna">
+          <h3>Legal</h3>
+          <ul class="pie__lista">
+            <li><a href="aviso-legal.html">Aviso legal y privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Franja inferior a ancho completo -->
+    <div class="pie__franja">
+      <div class="pie__franja-inner">
+        <div class="pie__sellos">
+          <img src="../assets/images/certifications/montes-de-granada.png" alt="DOP Montes de Granada" />
+          <img src="../assets/images/certifications/dcoop.png" alt="DCOOP" />
+        </div>
+        <span class="pie__franja-sep" aria-hidden="true"></span>
+        <p class="pie__copyright">© <span id="anyo-actual">2026</span> SCA Virgen de la Cabeza</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="subir-arriba" class="subir-arriba" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 15 12 9 18 15" />
+    </svg>
+  </button>
+
+  <script>
+    document.getElementById('anyo-actual').textContent = new Date().getFullYear();
+  </script>
+  <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/contacto.js" defer></script>
+</body>
+</html>

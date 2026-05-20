@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos agrícolas · SCA Virgen de la Cabeza</title>
+  <meta name="description" content="Catálogo de productos agrícolas que suministramos desde la cooperativa: vareo, fitosanitarios, nutrición agrícola, accesorios y repuestos. Solo en tienda física." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/componentes.css" />
+  <link rel="stylesheet" href="styles/paginas.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER GLOBAL
+       ============================================================ -->
+  <header class="encabezado" role="banner">
+    <div class="contenedor encabezado__inner">
+      <a href="index.html" class="encabezado__logo" aria-label="SCA Virgen de la Cabeza — Inicio">
+        <img src="assets/images/icons/LogoSCA.png" alt="" class="encabezado__logo-icono" aria-hidden="true" />
+        <span>
+          <span class="encabezado__logo-marca">Virgen de la Cabeza</span>
+          <span class="encabezado__logo-sub">SCA · Montejícar</span>
+        </span>
+      </a>
+
+      <nav class="encabezado__nav" aria-label="Navegación principal">
+        <ul class="encabezado__nav-lista">
+          <li><a class="encabezado__nav-link" href="index.html">Inicio</a></li>
+          <li><a class="encabezado__nav-link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="encabezado__nav-link" href="tienda.html">Tienda</a></li>
+          <li><a class="encabezado__nav-link" href="productos-agricolas.html" aria-current="page">Productos agrícolas</a></li>
+          <li><a class="encabezado__nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <div class="encabezado__acceso">
+          <button id="abrir-acceso" class="encabezado__acceso-boton" type="button"
+                  aria-controls="acceso-panel" aria-expanded="false" aria-label="Acceso socios">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+            </svg>
+          </button>
+
+          <div id="acceso-panel" class="acceso-panel" role="dialog" aria-modal="false" aria-labelledby="acceso-titulo" aria-hidden="true">
+            <h2 id="acceso-titulo" class="acceso-panel__titulo">Acceso socios</h2>
+            <p class="acceso-panel__subtitulo">Entra en tu área privada</p>
+
+            <form class="acceso-form" novalidate>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-usuario">Nº de socio o email</label>
+                <input class="acceso-form__input" type="text" id="acceso-usuario" name="usuario"
+                       autocomplete="username"/>
+              </div>
+              <div class="acceso-form__campo">
+                <label class="acceso-form__etiqueta" for="acceso-clave">Contraseña</label>
+                <input class="acceso-form__input" type="password" id="acceso-clave" name="contrasena"
+                       autocomplete="current-password" placeholder="••••••••" />
+              </div>
+              <button class="boton boton--primario acceso-form__boton" type="submit">Iniciar sesión</button>
+              <a class="acceso-form__olvido" href="#">¿Has olvidado tu contraseña?</a>
+            </form>
+
+            <p class="acceso-panel__pie"><strong>Virgen de la Cabeza</strong> · Socios</p>
+          </div>
+        </div>
+
+        <a href="carrito.html" class="encabezado__carrito" aria-label="Ver carrito">
+          <svg class="encabezado__carrito-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.6a2 2 0 0 0 2-1.6L21 8H6" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="17" cy="20" r="1.5" />
+          </svg>
+          <span class="encabezado__carrito-contador" data-contador-carrito data-cantidad="0">0</span>
+        </a>
+
+        <button id="abrir-menu-movil" class="encabezado__hamburguesa" type="button" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="menu-movil" class="menu-movil" aria-hidden="true">
+      <nav aria-label="Navegación móvil">
+        <ul class="menu-movil__lista">
+          <li><a class="menu-movil__link" href="index.html">Inicio</a></li>
+          <li><a class="menu-movil__link" href="la-cooperativa.html">La cooperativa</a></li>
+          <li><a class="menu-movil__link" href="tienda.html">Tienda</a></li>
+          <li><a class="menu-movil__link" href="productos-agricolas.html">Productos agrícolas</a></li>
+          <li><a class="menu-movil__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============================================================
+         1. HERO CORTO
+         ============================================================ -->
+    <section class="tienda-hero" aria-labelledby="hero-corto-titulo">
+      <img class="tienda-hero__media"
+           src="assets/images/hero/hero-fallback.jpg"
+           alt=""
+           aria-hidden="true" />
+      <div class="tienda-hero__velo" aria-hidden="true"></div>
+
+      <div class="contenedor tienda-hero__contenido">
+        <span class="eyebrow tienda-hero__eyebrow">Productos agrícolas</span>
+        <h1 id="hero-corto-titulo" class="tienda-hero__titulo">Todo lo que necesita el olivar</h1>
+        <p class="tienda-hero__subtitulo">Suministramos a nuestros socios y al agricultor de la zona. Disponibles para compra directa en la cooperativa.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. BANDA DE AVISO "SOLO EN TIENDA FÍSICA"
+         ============================================================ -->
+    <aside class="aviso-tienda" aria-label="Aviso de compra">
+      <div class="contenedor aviso-tienda__inner">
+        <svg class="aviso-tienda__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <p class="aviso-tienda__texto">
+          <strong>Estos productos solo se venden en nuestras instalaciones.</strong>
+          Para consultar disponibilidad o precios, llámanos o pásate por la cooperativa.
+        </p>
+        <a href="contacto.html" class="boton boton--secundario aviso-tienda__cta">Ver cómo llegar</a>
+      </div>
+    </aside>
+
+    <!-- ============================================================
+         3. FILTROS POR CATEGORÍA
+         ============================================================ -->
+    <nav class="filtros"
+         data-filtros
+         data-filtros-objetivo=".agricolas__seccion"
+         aria-label="Filtrar por categoría">
+      <div class="contenedor filtros__inner" role="group">
+        <button class="chip-formato chip-formato--activo" type="button"
+                data-filtro="todas" aria-pressed="true">Todas</button>
+        <button class="chip-formato" type="button"
+                data-filtro="vareo" aria-pressed="false">Vareo</button>
+        <button class="chip-formato" type="button"
+                data-filtro="fitosanitarios" aria-pressed="false">Fitosanitarios</button>
+        <button class="chip-formato" type="button"
+                data-filtro="nutricion" aria-pressed="false">Nutrición agrícola</button>
+        <button class="chip-formato" type="button"
+                data-filtro="accesorios" aria-pressed="false">Accesorios</button>
+        <button class="chip-formato" type="button"
+                data-filtro="repuestos" aria-pressed="false">Repuestos</button>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         4. GRID DE PRODUCTOS POR CATEGORÍA
+         ============================================================ -->
+    <div class="agricolas">
+      <div class="contenedor">
+
+        <!-- 4.1 VAREO -->
+        <section class="agricolas__seccion al-aparecer" data-categoria="vareo" aria-labelledby="cat-vareo">
+          <div class="agricolas__cabecera">
+            <div class="agricolas__cabecera-imagen">
+              <img src="assets/images/products/Ctg_Vareo.png" alt="Productos de vareo en uso bajo un olivo" loading="lazy" />
+            </div>
+            <div>
+              <h2 id="cat-vareo" class="agricolas__titulo">Vareo</h2>
+              <p class="agricolas__descripcion">Todo lo necesario para la recogida tradicional de la aceituna.</p>
+            </div>
+          </div>
+
+          <div class="agricolas__grid">
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Vareo_Pdct_Manta_Vareo.png" alt="Manta de vareo para extender bajo el olivo" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Manta de vareo</h3>
+              <p class="tarjeta-agricola__descripcion">Mantas de gran formato para extender bajo el olivo y recoger la aceituna.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Vareo_Pdct_Rastrillo_Vareo.png" alt="Rastrillo manual de vareo" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Rastrillo de vareo</h3>
+              <p class="tarjeta-agricola__descripcion">Rastrillo manual para terminar de bajar la aceituna y agruparla.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Vareo_Pdct_Vara.png" alt="Vara tradicional para vareo del olivo" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Vara</h3>
+              <p class="tarjeta-agricola__descripcion">Varas de distintas medidas para el vareo tradicional.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4.2 FITOSANITARIOS -->
+        <section class="agricolas__seccion al-aparecer" data-categoria="fitosanitarios" aria-labelledby="cat-fito">
+          <div class="agricolas__cabecera">
+            <div class="agricolas__cabecera-imagen">
+              <img src="assets/images/products/Ctg_Productos_Fitosanitarios.png" alt="Garrafas de productos fitosanitarios para olivar" loading="lazy" />
+            </div>
+            <div>
+              <h2 id="cat-fito" class="agricolas__titulo">Fitosanitarios</h2>
+              <p class="agricolas__descripcion">Productos para el tratamiento de plagas y enfermedades del olivar.</p>
+            </div>
+          </div>
+
+          <div class="agricolas__grid">
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Productos_Fitosanitarios_Pdct_Fungicida.png" alt="Garrafa de fungicida para olivar" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Fungicidas</h3>
+              <p class="tarjeta-agricola__descripcion">Tratamientos contra hongos y enfermedades fúngicas.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Productos_Fitosanitarios_Pdct_Herbicida.png" alt="Garrafa de herbicida para olivar" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Herbicidas</h3>
+              <p class="tarjeta-agricola__descripcion">Control de hierbas competidoras del olivar.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Productos_Fitosanitarios_Pdct_Insecticida.png" alt="Garrafa de insecticida para olivar" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Insecticidas</h3>
+              <p class="tarjeta-agricola__descripcion">Para plagas comunes como mosca del olivo, polilla y prays.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4.3 NUTRICIÓN -->
+        <section class="agricolas__seccion al-aparecer" data-categoria="nutricion" aria-labelledby="cat-nutricion">
+          <div class="agricolas__cabecera">
+            <div class="agricolas__cabecera-imagen">
+              <img src="assets/images/products/Ctg_Nutricion_Agricola.png" alt="Sacos de abono y fertilizante" loading="lazy" />
+            </div>
+            <div>
+              <h2 id="cat-nutricion" class="agricolas__titulo">Nutrición agrícola</h2>
+              <p class="agricolas__descripcion">Abonos y fertilizantes para mantener el vigor del olivar.</p>
+            </div>
+          </div>
+
+          <div class="agricolas__grid">
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Nutricion_Agricola_Pdct_Abono.png" alt="Saco de abono para olivar" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Abonos</h3>
+              <p class="tarjeta-agricola__descripcion">Abonos orgánicos y minerales para fertilización de fondo.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Nutricion_Agricola_Pdct_Fertilizante.png" alt="Saco de fertilizante para olivar" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Fertilizantes</h3>
+              <p class="tarjeta-agricola__descripcion">Fertilizantes específicos para olivar adulto y plantaciones jóvenes.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4.4 ACCESORIOS -->
+        <section class="agricolas__seccion al-aparecer" data-categoria="accesorios" aria-labelledby="cat-accesorios">
+          <div class="agricolas__cabecera">
+            <div class="agricolas__cabecera-imagen">
+              <img src="assets/images/products/Ctg_Accesorios_Agricolas.png" alt="Capazos y guantes para el trabajo en el campo" loading="lazy" />
+            </div>
+            <div>
+              <h2 id="cat-accesorios" class="agricolas__titulo">Accesorios agrícolas</h2>
+              <p class="agricolas__descripcion">Material complementario para el trabajo en el campo.</p>
+            </div>
+          </div>
+
+          <div class="agricolas__grid">
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Accesorios_Agricolas_Pdct_Capazo.png" alt="Capazo de mimbre para recolección manual" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Capazos</h3>
+              <p class="tarjeta-agricola__descripcion">Capazos de distintos tamaños para recolección manual.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Accesorios_Agricolas_Pdct_Guantes.png" alt="Par de guantes de trabajo agrícola" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Guantes de trabajo</h3>
+              <p class="tarjeta-agricola__descripcion">Guantes resistentes para faenas del campo.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4.5 REPUESTOS -->
+        <section class="agricolas__seccion al-aparecer" data-categoria="repuestos" aria-labelledby="cat-repuestos">
+          <div class="agricolas__cabecera">
+            <div class="agricolas__cabecera-imagen">
+              <img src="assets/images/products/Ctg_Repuestos_Maquinaria.png" alt="Engranajes y tornillería para maquinaria agrícola" loading="lazy" />
+            </div>
+            <div>
+              <h2 id="cat-repuestos" class="agricolas__titulo">Repuestos de maquinaria</h2>
+              <p class="agricolas__descripcion">Piezas y componentes para mantenimiento de maquinaria agrícola común en el olivar.</p>
+            </div>
+          </div>
+
+          <div class="agricolas__grid">
+            <article class="tarjeta-agricola al-aparecer-hijo">
+              <div class="tarjeta-agricola__imagen-wrapper">
+                <img class="tarjeta-agricola__imagen" src="assets/images/products/Ctg_Repuestos_Maquinaria_Pdct_Repuestos_Maquinaria.png" alt="Engranajes y tornillería de repuesto" loading="lazy" />
+              </div>
+              <h3 class="tarjeta-agricola__nombre">Repuestos varios</h3>
+              <p class="tarjeta-agricola__descripcion">Pasa por la cooperativa para consultar disponibilidad de piezas específicas.</p>
+              <span class="tarjeta-agricola__nota">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/><circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Disponible en la cooperativa
+              </span>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ============================================================
+         5. CTA FINAL — CÓMO COMPRAR
+         ============================================================ -->
+    <section class="como-comprar" aria-labelledby="como-comprar-titulo">
+      <div class="contenedor como-comprar__grid">
+
+        <div>
+          <h2 id="como-comprar-titulo" class="como-comprar__titulo">¿Te interesa algún producto?</h2>
+          <p class="como-comprar__texto">Pásate por la cooperativa o llámanos. Atendemos en horario de almazara y campaña.</p>
+        </div>
+
+        <div class="como-comprar__contacto">
+          <div class="contacto-fila">
+            <svg class="contacto-fila__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-8 8-13a8 8 0 1 0-16 0c0 5 8 13 8 13Z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <div>
+              <span class="contacto-fila__etiqueta">Dirección</span>
+              <span class="contacto-fila__valor">Cooperativa Virgen de la Cabeza<br />Montejícar, Granada</span>
+            </div>
+          </div>
+
+          <div class="contacto-fila">
+            <svg class="contacto-fila__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/>
+            </svg>
+            <div>
+              <span class="contacto-fila__etiqueta">Teléfono</span>
+              <span class="contacto-fila__valor">958 393 394</span>
+            </div>
+          </div>
+
+          <div class="contacto-fila">
+            <svg class="contacto-fila__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 7 9-7"/>
+            </svg>
+            <div>
+              <span class="contacto-fila__etiqueta">Correo</span>
+              <span class="contacto-fila__valor">info@scavirgendelacabeza.com</span>
+            </div>
+          </div>
+
+          <div class="contacto-fila">
+            <svg class="contacto-fila__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 7 12 12 15 14"/>
+            </svg>
+            <div>
+              <span class="contacto-fila__etiqueta">Horario</span>
+              <span class="contacto-fila__valor">[HORARIO PENDIENTE]</span>
+            </div>
+          </div>
+
+          <a href="contacto.html" class="boton boton--primario como-comprar__cta">Ver mapa y contacto</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER GLOBAL
+       ============================================================ -->
+  <footer class="pie" role="contentinfo">
+    <div class="contenedor">
+      <div class="pie__grid">
+        <!-- Columna 1: marca + redes -->
+        <div class="pie__columna">
+          <div class="pie__marca">
+            Virgen de la Cabeza
+            <span class="pie__marca-sub">SCA · Montejícar</span>
+          </div>
+          <p class="pie__texto">Cooperativa olivarera fundada en 1963. Aceite de montaña de la DOP Montes de Granada.</p>
+          <div class="pie__redes">
+            <a class="pie__red" href="https://www.facebook.com/scavirgendelacabeza/?locale=es_ES" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.4A24 24 0 0 0 14.3 4c-2.5 0-4.2 1.5-4.2 4.3v2.2H7.5v3h2.6V21h3.4Z"/></svg>
+            </a>
+            <a class="pie__red" href="https://www.instagram.com/scavirgendelacabeza" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: navegación -->
+        <div class="pie__columna">
+          <h3>Navegación</h3>
+          <ul class="pie__lista">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="la-cooperativa.html">La cooperativa</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="productos-agricolas.html">Productos agrícolas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: contacto -->
+        <div class="pie__columna">
+          <h3>Contacto</h3>
+          <p class="pie__texto">
+            Camino de la Almazara, s/n<br />
+            18561 Montejícar, Granada
+          </p>
+          <ul class="pie__lista">
+            <li><a href="tel:+34958393394">958 393 394</a></li>
+            <li><a href="mailto:info@scavirgendelacabeza.com">info@scavirgendelacabeza.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: legales -->
+        <div class="pie__columna">
+          <h3>Legal</h3>
+          <ul class="pie__lista">
+            <li><a href="aviso-legal.html">Aviso legal y privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Franja inferior a ancho completo -->
+    <div class="pie__franja">
+      <div class="pie__franja-inner">
+        <div class="pie__sellos">
+          <img src="assets/images/certifications/montes-de-granada.png" alt="DOP Montes de Granada" />
+          <img src="assets/images/certifications/dcoop.png" alt="DCOOP" />
+        </div>
+        <span class="pie__franja-sep" aria-hidden="true"></span>
+        <p class="pie__copyright">© <span id="anyo-actual">2026</span> SCA Virgen de la Cabeza</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="subir-arriba" class="subir-arriba" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 15 12 9 18 15" />
+    </svg>
+  </button>
+
+  <script>
+    document.getElementById('anyo-actual').textContent = new Date().getFullYear();
+  </script>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/catalogo.js" defer></script>
+</body>
+</html>
