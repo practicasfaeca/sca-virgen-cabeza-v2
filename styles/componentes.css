@@ -39,6 +39,49 @@
   background-color: var(--color-oliva-oscuro);
   color: var(--color-crema);
 }
+/* ============================================================ */
+/* MARQUEE TICKER                                                */
+/* ============================================================ */
+.ticker {
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 1px solid #000;
+  height: var(--marquee-h);
+  overflow: hidden;
+  position: relative;
+  z-index: 60;
+}
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker-roll 48s linear infinite;
+  height: 100%;
+  align-items: center;
+}
+.ticker__item {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--bone);
+}
+.ticker__item--alt { color: var(--terracotta); }
+.ticker__item .dot {
+  width: 5px; height: 5px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  display: inline-block;
+}
+@keyframes ticker-roll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker:hover .ticker__track { animation-play-state: paused; }
 
 /* ----------------------------------------------------------
    Header
