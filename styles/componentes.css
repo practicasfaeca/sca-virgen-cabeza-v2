@@ -541,7 +541,7 @@
 
 .subir-arriba:hover {
   background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.45);
+  border-color: var(--color-dorado);
   color: var(--color-dorado);
   /* <- Si quieres cambiar el color de la flecha al pasar el cursor, cámbialo aquí */
 }
