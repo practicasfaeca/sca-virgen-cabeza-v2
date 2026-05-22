@@ -101,11 +101,11 @@
    Nota: el valor anterior (1.12 / 1.15) sobrecorregía y dejaba la
    botella del medio mayor que las demás. */
 .tarjeta-aceite__imagen[src*="AoveDCOOP_SelecctionArbequina"] {
-  transform: scale(1.05);
+  transform: scale(0.98);
   transform-origin: center;
 }
 .tarjeta-aceite:hover .tarjeta-aceite__imagen[src*="AoveDCOOP_SelecctionArbequina"] {
-  transform: scale(1.08);
+  transform: scale(1.01);
 }
 
 /* Sello "Edición limitada": misma posición pero un poco menor */
