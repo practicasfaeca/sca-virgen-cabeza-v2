@@ -95,16 +95,17 @@
 
 /* Compensación de padding interno en el PNG de Arbequina.
    La PNG de la arbequina 250 ml viene con más píxeles transparentes
-   alrededor de la botella (82 % vs ~78 % en las otras), así que el
-   bote se ve un punto más pequeño en la tarjeta. Lo escalamos un
-   poco para igualar visualmente con picual y hojiblanca, sin tocar
-   el asset. Mantenemos object-fit: contain. */
+   alrededor de la botella, así que ajustamos ligeramente la escala
+   para que quede igualada visualmente con picual y hojiblanca,
+   sin tocar el asset. Mantenemos object-fit: contain.
+   Nota: el valor anterior (1.12 / 1.15) sobrecorregía y dejaba la
+   botella del medio mayor que las demás. */
 .tarjeta-aceite__imagen[src*="AoveDCOOP_SelecctionArbequina"] {
-  transform: scale(1.12);
+  transform: scale(1.05);
   transform-origin: center;
 }
 .tarjeta-aceite:hover .tarjeta-aceite__imagen[src*="AoveDCOOP_SelecctionArbequina"] {
-  transform: scale(1.15);
+  transform: scale(1.08);
 }
 
 /* Sello "Edición limitada": misma posición pero un poco menor */
