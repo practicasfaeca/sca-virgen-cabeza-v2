@@ -162,23 +162,26 @@
 }
 
 /* ----------------------------------------------------------
-   3. EYEBROW CON GUION
-   Detalle de skin: el rótulo dorado ahora va precedido de una
-   línea fina del mismo color. Cambia poco el peso visual y
-   refuerza la nueva paleta más editorial.
+   3. EYEBROW CON DECORADOR DE RAMA DE OLIVO
+   Detalle de skin: el rótulo dorado ahora va precedido de un
+   pequeño decorador en forma de rama de olivo dorada en lugar
+   de una simple línea. Refuerza la identidad de la marca.
    ---------------------------------------------------------- */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 .eyebrow::before {
   content: "";
   display: inline-block;
-  width: 22px;
-  height: 1px;
-  background-color: currentColor;
-  opacity: 0.65;
+  width: 24px;
+  height: 22px;
+  background-image: url("../assets/images/icons/decorador-dorado.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  flex-shrink: 0;
 }
 
 /* ----------------------------------------------------------
@@ -362,4 +365,88 @@ body { background-color: #F7F3E9; }
   .cronologia__lista::before {
     top: 37px;
   }
+}
+
+
+/* ----------------------------------------------------------
+   18. DESTACADO — Ramas de olivo detrás de la botella
+   Tras la botella del Único Frutado añadimos un decorador de
+   ramas y hojas de olivo a modo de fondo natural. La imagen
+   se coloca detrás de la botella, centrada y con opacidad
+   reducida para no competir con el producto.
+   ---------------------------------------------------------- */
+.destacado__imagen-wrapper {
+  position: relative;
+  isolation: isolate;
+}
+.destacado__imagen-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(560px, 110%);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  background-image: url("../assets/images/decoradores/hoja-olivo-especial.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
+}
+.destacado__imagen {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ----------------------------------------------------------
+   19. TICKER — Banda editorial oscura con textura
+   Sustituye al ticker en fondo claro por una banda en carbón con
+   una retícula diagonal hairline en dorado muy sutil — registro
+   editorial, evoca cabecera de prensa especializada. Texto crema
+   con acentos en dorado para los ítems destacados.
+   ---------------------------------------------------------- */
+.ticker {
+  background-color: var(--color-carbon);
+  background-image:
+    radial-gradient(ellipse at 0% 0%,
+      rgba(245, 241, 232, 0.10) 0%,
+      rgba(245, 241, 232, 0) 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><path d='M0 20 L20 0' stroke='%23C9A961' stroke-opacity='0.10' stroke-width='1' fill='none'/></svg>");
+  background-size: auto, 20px 20px;
+  background-repeat: no-repeat, repeat;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.35);
+  color: var(--color-crema);
+}
+.ticker .ticker__item { color: var(--color-crema); }
+.ticker .ticker__item--alt { color: var(--color-dorado); }
+.ticker .ticker__item .dot { background-color: var(--color-dorado); }
+
+/* ----------------------------------------------------------
+   20. SELLO GIRATORIO — Color más brillante + sombra verde
+   Sube la luminosidad del dorado del medallón para que contraste
+   mejor sobre la botella oscura. Aplicamos una sombra difuminada
+   en verde oliva al texto para darle más cuerpo y separación
+   visual sobre el fondo (equivale a text-shadow: 2px 2px 4px).
+   ---------------------------------------------------------- */
+.destacado__sello-rotatorio {
+  color: #F4D67A;
+}
+.destacado__sello-rotatorio text {
+  filter:
+    drop-shadow(2px 2px 3px var(--color-oliva-oscuro))
+    drop-shadow(0 0 2px var(--color-oliva-oscuro));
+}
+
+/* ----------------------------------------------------------
+   21. PIE · REDES SOCIALES — Hover legible
+   La regla genérica .pie a:hover de la sección 9 estaba pintando
+   los iconos en dorado al pasar el ratón, ocultándolos sobre el
+   fondo dorado del hover. Aquí fijamos el color a carbón para que
+   sigan siendo visibles.
+   ---------------------------------------------------------- */
+.pie .pie__red:hover {
+  color: var(--color-carbon);
 }
