@@ -352,7 +352,7 @@
   background-color: var(--color-oliva-oscuro);
   color: var(--color-crema);
   padding: 64px 0 0;
-  margin-top: 80px;
+  margin-top: 1px;
 }
 
 .pie__grid {
