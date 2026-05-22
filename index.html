@@ -9,7 +9,7 @@
   <!-- Google Fonts: Cormorant Garamond (titular) + Inter (cuerpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 
   <!-- Hojas de estilo: orden global → componentes → página actual -->
   <link rel="stylesheet" href="styles/global.css" />
@@ -315,6 +315,24 @@
     <section class="destacado al-aparecer" aria-labelledby="destacado-titulo">
       <div class="contenedor destacado__grid">
         <div class="destacado__imagen-wrapper">
+          <!-- Sello circular giratorio: medallón de edición limitada
+               que orbita junto a la botella. Texto repetido para
+               cubrir toda la circunferencia. Usa JetBrains Mono para
+               un aire técnico/etiqueta. -->
+          <svg class="destacado__sello-rotatorio" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <defs>
+              <!-- Círculo invisible que sirve de path para el texto -->
+              <path id="circ-sello-unico"
+                d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+            </defs>
+            <!-- Aro decorativo fino interior -->
+            <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.35"/>
+            <!-- Pequeña aceituna estilizada en el centro inferior -->
+            <text x="100" y="108" text-anchor="middle" font-size="14" fill="currentColor" opacity="0.55">✦</text>
+            <text font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" letter-spacing="3" font-weight="500" fill="currentColor">
+              <textPath href="#circ-sello-unico" startOffset="0">EDICIÓN LIMITADA · COUPAGE FRUTADO ÚNICO · OTOÑO 2026 · </textPath>
+            </text>
+          </svg>
           <!-- Si la imagen del producto falla, mostramos un placeholder elegante en su lugar. -->
           <img class="destacado__imagen" src="assets/images/products/AoveUnicoFrutadoProduccionLimitada.png"
             alt="Botella de aceite Único Frutado — hojiblanca de recolección temprana"

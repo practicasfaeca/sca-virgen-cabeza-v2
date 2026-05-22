@@ -378,6 +378,7 @@
   justify-content: center;
   align-items: center;
   min-height: 320px;
+  position: relative; /* para anclar el sello rotatorio absoluto */
 }
 
 .destacado__imagen {
@@ -423,6 +424,55 @@
   text-transform: uppercase;
   color: var(--color-dorado);
   margin-bottom: 16px;
+}
+
+/* ----- Sello circular giratorio (medallón "Edición limitada")
+   Se posiciona en la esquina superior derecha del wrapper de la
+   botella, solapado ligeramente sobre ella para crear el efecto
+   de medallón colgado. Gira lento en bucle infinito. ------------ */
+.destacado__sello-rotatorio {
+  position: absolute;
+  top: 6%;
+  right: 6%;
+  width: 170px;
+  height: 170px;
+  color: var(--color-dorado);
+  pointer-events: none;
+  animation: girar-sello 22s linear infinite;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .25));
+  z-index: 2;
+}
+
+@keyframes girar-sello {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Si el usuario prefiere menos movimiento, lo dejamos quieto. */
+@media (prefers-reduced-motion: reduce) {
+  .destacado__sello-rotatorio {
+    animation: none;
+  }
+}
+
+/* En tablets reducimos un punto el sello para que no invada la botella */
+@media (max-width: 900px) {
+  .destacado__sello-rotatorio {
+    width: 140px;
+    height: 140px;
+    top: 4%;
+    right: 4%;
+  }
+}
+
+/* En móvil aún más pequeño y un poco más metido para que no se salga */
+@media (max-width: 600px) {
+  .destacado__sello-rotatorio {
+    width: 110px;
+    height: 110px;
+    top: 2%;
+    right: 8%;
+  }
 }
 
 .destacado__titulo {
